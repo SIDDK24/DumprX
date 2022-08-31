@@ -19,7 +19,6 @@ jobs:
        - name: Cleaning Up Runner
          uses: rokibhasansagar/slimhub_actions@main
 
-    steps:
        - name: DumpX
          run: |
             git clone https://github.com/SIDDK24/DumprX.git
