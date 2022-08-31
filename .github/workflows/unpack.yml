@@ -1,0 +1,28 @@
+name: Dump
+on:
+  workflow_dispatch:
+    inputs:
+      Link:
+        description: 'Enter Direct Download Link'
+        required: true
+        default: '##'
+
+env:
+  LINK: ${{ github.event.inputs.Link }}
+  GH_TOKEN: ${{ secrets.Gh_Token }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+       - name: Cleaning Up Runner
+         uses: rokibhasansagar/slimhub_actions@main
+
+    steps:
+       - name: DumpX
+         run: |
+            git clone https://github.com/SIDDK24/DumprX.git
+            cd DumprX
+            bash setup.sh
+            ./dumper.sh $LINK
