@@ -1,0 +1,25 @@
+name: Dump
+on:
+  workflow_dispatch:
+    inputs:
+      Link:
+        description: 'Enter Direct Download Link'
+        required: true
+
+env:
+  LINK: ${{ github.event.inputs.Link }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+       - name: DumpX
+         run: |
+            git clone https://github.com/SIDDK24/DumprX.git
+            cd DumprX
+            bash setup.sh
+            git config --global user.name "SIDDK24"
+            git config --global user.email "skoyande17@gmail.com"
+            echo "${{ secrets.GH_TOKEN }}" > .github_token
+            ./dumper.sh $LINK
