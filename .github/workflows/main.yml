@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+       - name: Cleaning Up Runner
+         uses: rokibhasansagar/slimhub_actions@main
+       
        - name: DumpX
          run: |
             git clone https://github.com/SIDDK24/DumprX.git
