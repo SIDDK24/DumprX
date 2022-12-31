@@ -22,8 +22,6 @@ jobs:
             git clone https://github.com/SIDDK24/DumprX.git
             cd DumprX
             bash setup.sh
-            git config http.postBuffer 524288000
-            git config --global http.version HTTP/1.1
             git config --global user.name "SIDDK24"
             git config --global user.email "skoyande17@gmail.com"
             echo "${{ secrets.GH_TOKEN }}" > .github_token
