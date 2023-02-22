@@ -67,7 +67,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	    sleep 1
 
         sudo pacman -Syyu --needed --noconfirm 2>&1 | grep -v "warning: could not get file information" || abort "Setup Failed!"
-        sudo pacman -Sy --noconfirm unace unrar zip unzip p7zip sharutils uudeview arj cabextract file-roller dtc brotli axel gawk aria2 detox cpio lz4 jq || abort "Setup Failed!"
+        sudo pacman -Sy --noconfirm unace unrar p7zip sharutils uudeview arj cabextract file-roller dtc brotli axel gawk aria2 detox cpio lz4 jq || abort "Setup Failed!"
 
         # Python
         sleep 1
@@ -95,9 +95,9 @@ fi
 sleep 1
 echo -e ${PURPLE}"Distro Specific Setup Done, Now Installing pyhton Packages from pip..."${NORMAL}
 sleep 1
-sudo "$PIP" install backports.lzma extract-dtb protobuf==3.20.0 pycrypto docopt zstandard twrpdtgen future requests humanize clint lz4 pycryptodome || abort "Setup Failed!"
+sudo "$PIP" install backports.lzma extract-dtb protobuf==3.20.0 pycrypto docopt zstandard twrpdtgen future requests humanize clint lz4 pycryptodome pycryptodomex || abort "Setup Failed!"
 sleep 1
-$PIP install git+https://github.com/SebaUbuntu/aospdtgen || abort "Setup Failed!"
+$PIP install git+https://github.com/sebaubuntu-python/aospdtgen || abort "Setup Failed!"
 
 # Done!
 echo -e ${GREEN}"Setup Complete!"${NORMAL}
